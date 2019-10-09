@@ -1,5 +1,5 @@
 # jubilant-happiness
-
+```
 domain
     entity
         index.ts
@@ -21,3 +21,4 @@ domain
         index.ts
         Department.ts
         Department.spec.ts
+```
