@@ -12,7 +12,7 @@ describe('[Domain] ValueObject', () => {
         expect(userName).toBeDefined();
     });
 
-    it('should equality of another value object', () => {
+    it('should check equality of another value object', () => {
         const john1 = new UserName({ name: 'John' });
         const john2 = new UserName({ name: 'John' });
         const bill = new UserName({ name: 'Bill' });
