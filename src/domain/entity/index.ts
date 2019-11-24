@@ -1,1 +1,3 @@
-export { Entity } from './Entity';
+export { Entity, IEntity } from './Entity';
+export { UniqueId, IUniqueId } from './UniqueId';
+
