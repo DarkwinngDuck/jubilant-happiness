@@ -12,7 +12,7 @@ describe('[Domain] Result', () => {
 
     it('should create failure result', () => {
         const error = new Error('Error');
-        const result = Result.failure([error]);
+        const result = Result.failure(error);
         expect(result.isSuccess).toStrictEqual(false);
         expect(result.isFailure).toStrictEqual(true);
         expect(result.value).toStrictEqual([error]);
@@ -28,7 +28,7 @@ describe('[Domain] Result', () => {
         const error = new Error('error');
         const error2 = new Error('error2');
         const error3 = new Error('error3');
-        const result = Result.combine([Result.ok(), Result.failure([error, error2]), Result.failure([error3])]);
+        const result = Result.combine([Result.ok(), Result.failure(error, error2), Result.failure(error3)]);
         expect(result.isSuccess).toStrictEqual(false);
         expect(result.isFailure).toStrictEqual(true);
         expect(result.value).toStrictEqual([error, error2, error3]);

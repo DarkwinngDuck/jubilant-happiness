@@ -21,7 +21,7 @@ export class Result<T> {
         return new Result<U>(true, null, value);
     }
 
-    public static failure(errors: Error[]): Result<Error> {
+    public static failure(...errors: Error[]): Result<Error> {
         return new Result(false, errors);
     }
 
@@ -29,6 +29,6 @@ export class Result<T> {
         const errors = results.reduce((acc, result) => {
             return result.isFailure ? [...acc, ...result.value] : acc;
         }, []);
-        return errors.length ? Result.failure(errors) : Result.ok();
+        return errors.length ? Result.failure(...errors) : Result.ok();
     }
 }
