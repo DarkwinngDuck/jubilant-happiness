@@ -21,11 +21,11 @@ export class Result<T> {
         return new Result<U>(true, null, value);
     }
 
-    public static failure(...errors: Error[]): Result<Error> {
+    public static failure(...errors: Error[]): Result<Error[]> {
         return new Result(false, errors);
     }
 
-    public static combine(results: Result<any>[]): Result<any> {
+    public static combine(...results: Result<any>[]): Result<any> | Result<Error[]> {
         const errors = results.reduce((acc, result) => {
             return result.isFailure ? [...acc, ...result.value] : acc;
         }, []);

@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "This is brilliant",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "date-fns": "2.8.1"
+  },
   "devDependencies": {
     "@types/jest": "^24.0.22",
     "jest": "^24.9.0",
