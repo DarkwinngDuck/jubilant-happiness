@@ -1,7 +1,16 @@
 export class Result<T> {
     public isSuccess: boolean;
     public isFailure: boolean
-    public value: T | Error[];
+    private _value: T;
+    private _errors: Error[];
+
+    get value(): T {
+        return this._value;
+    }
+
+    get errors(): Error[] {
+        return this._errors;
+    }
 
     private constructor(isSuccess: boolean, errors?: Error[], value?: T) {
         if (isSuccess && errors) {
@@ -13,7 +22,8 @@ export class Result<T> {
 
         this.isSuccess = isSuccess;
         this.isFailure = !isSuccess;
-        this.value = isSuccess ? value : errors;
+        this._value = value;
+        this._errors = errors;
         Object.freeze(this);
     }
 
@@ -26,8 +36,8 @@ export class Result<T> {
     }
 
     public static combine(...results: Result<any>[]): Result<any> | Result<Error[]> {
-        const errors = results.reduce((acc, result) => {
-            return result.isFailure ? [...acc, ...result.value] : acc;
+        const errors: Error[] = results.reduce((acc, result) => {
+            return result.isFailure ? [...acc, ...result.errors] : acc;
         }, []);
         return errors.length ? Result.failure(...errors) : Result.ok();
     }

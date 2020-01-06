@@ -15,7 +15,7 @@ describe('[Domain] Result', () => {
         const result = Result.failure(error);
         expect(result.isSuccess).toStrictEqual(false);
         expect(result.isFailure).toStrictEqual(true);
-        expect(result.value).toStrictEqual([error]);
+        expect(result.errors).toStrictEqual([error]);
     });
 
     it('should return ok result if no failure results passed to combine', () => {
@@ -31,6 +31,6 @@ describe('[Domain] Result', () => {
         const result = Result.combine(Result.ok(), Result.failure(error, error2), Result.failure(error3));
         expect(result.isSuccess).toStrictEqual(false);
         expect(result.isFailure).toStrictEqual(true);
-        expect(result.value).toStrictEqual([error, error2, error3]);
+        expect(result.errors).toStrictEqual([error, error2, error3]);
     });
 })
