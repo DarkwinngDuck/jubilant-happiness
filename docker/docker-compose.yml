@@ -1,0 +1,21 @@
+version: "3.5"
+
+networks:
+  lib:
+    name: lib
+
+services:
+  lib:
+    container_name: lib
+    build:
+      context: ../lib
+    ports:
+      - 3001:3001
+    volumes:
+      - ../lib:/usr/src/app
+    env_file:
+      - .env
+    networks:
+      - lib
+    command: npm run test
+    restart: always
