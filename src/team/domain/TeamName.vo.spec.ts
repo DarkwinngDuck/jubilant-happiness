@@ -9,12 +9,12 @@ describe('[Team] TeamName', () => {
 
     it('should not create CreatedAt vo if date is invalid', () => {
         const emptyName = TeamName.create({ name: undefined }); 
-        expect(emptyName.isFailure).toStrictEqual(true);
+        expect(emptyName.isSuccess).toStrictEqual(false);
 
         const shortName = TeamName.create({ name: 'te' }); 
-        expect(shortName.isFailure).toStrictEqual(true);
+        expect(shortName.isSuccess).toStrictEqual(false);
 
         const longName = TeamName.create({ name: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' }); 
-        expect(longName.isFailure).toStrictEqual(true);
+        expect(longName.isSuccess).toStrictEqual(false);
     });
 });

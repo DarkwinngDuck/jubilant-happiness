@@ -11,7 +11,7 @@ describe('[Domain] CreatedAt', () => {
     it('should not create CreatedAt vo if date is invalid', () => {
         const isoDateStr = '2019-45-01T23:59:59';
         const createdAt = CreatedAt.create({ createdAt: isoDateStr }); 
-        expect(createdAt.isFailure).toStrictEqual(true);
+        expect(createdAt.isSuccess).toStrictEqual(false);
         expect(createdAt.errors).toStrictEqual([new Error('Invalid date value')]);
     });
 });
