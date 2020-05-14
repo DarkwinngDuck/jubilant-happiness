@@ -4,13 +4,15 @@
   "description": "This is brilliant",
   "main": "index.js",
   "dependencies": {
+    "@types/date-fns": "^2.6.0",
+    "date-fns": "^2.13.0",
     "uuid": "^3.4.0"
   },
   "devDependencies": {
     "@types/jest": "^24.9.1",
     "@types/uuid": "^3.4.8",
     "jest": "^25.2.4",
-    "ts-jest": "^24.3.0",
+    "ts-jest": "^25.5.1",
     "typescript": "^3.8.3"
   },
   "scripts": {
