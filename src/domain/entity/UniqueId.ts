@@ -8,6 +8,11 @@ export class UniqueId implements IUniqueId<string> {
 
     get value() { return this._value; }
 
+    /**
+     * TODO implement id generator 
+     * Make value optional if not passed should generate new id
+     * @param value 
+     */
     constructor(value: string) { this._value = value; }
 
     equals(id: IUniqueId<string>): boolean {
