@@ -1,14 +1,18 @@
 export class Result<T> {
     public isSuccess: boolean;
-    public isFailure: boolean
+    public isFailure: boolean;
     public value: T | Error[];
 
     private constructor(isSuccess: boolean, errors?: Error[], value?: T) {
         if (isSuccess && errors) {
-            throw new Error('InvalidOperation: A ok result can not contain errors');
+            throw new Error(
+                'InvalidOperation: A ok result can not contain errors',
+            );
         }
         if (!isSuccess && (!errors || !errors.length)) {
-            throw new Error('InvalidOperation: A failure result must contain errors');
+            throw new Error(
+                'InvalidOperation: A failure result must contain errors',
+            );
         }
 
         this.isSuccess = isSuccess;
