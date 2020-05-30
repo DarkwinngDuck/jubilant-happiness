@@ -4,17 +4,21 @@
   "description": "This is brilliant",
   "main": "index.js",
   "dependencies": {
+    "date-fns": "2.8.1",
     "uuid": "^3.4.0"
   },
   "devDependencies": {
     "@types/jest": "^24.9.1",
+    "@types/node": "^13.11.0",
     "@types/uuid": "^3.4.8",
     "jest": "^25.2.4",
-    "ts-jest": "^24.3.0",
-    "typescript": "^3.8.3"
+    "ts-jest": "^25.5.1",
+    "typescript": "^3.9.3"
   },
   "scripts": {
-    "test": "jest"
+    "pretest": "npm run build",
+    "test": "jest",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
